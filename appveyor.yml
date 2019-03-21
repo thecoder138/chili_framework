@@ -1,0 +1,46 @@
+image: 
+- Visual Studio 2017
+- Ubuntu1804
+
+
+before_build:
+- mkdir build
+- cd build
+- cmake ..
+
+for:
+- 
+  matrix:
+    only:
+      - image: Ubuntu1804
+
+  install:
+  - git submodule update --init --recursive
+  - sudo apt-get update
+  - sudo apt-get -y install xorg-dev    
+  - g++ -v
+      
+  build_script:
+  - echo Ubuntu build script
+  - make
+
+-
+  matrix:
+    only:
+      - image: Visual Studio 2017
+
+  install:
+  - git submodule update --init --recursive
+
+  build_script:
+  - echo VS build script
+  - msbuild %APPVEYOR_PROJECT_NAME%.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+after_build:
+- echo This now finished
+- cd Engine
+- cmd: dir
+- sh: ls -al
+- cmd: cd Debug
+- cmd: dir
+
