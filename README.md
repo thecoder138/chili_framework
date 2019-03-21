@@ -1,5 +1,6 @@
 # Multiplatform Chili Framework 
 This is still the Chili Framework used in the world-famous, erection-inducing, cancer-curing Planet Chili C++ Tutorials. However, this one has its internals changed to OpenGL, glfw and glad, therefore it can run even on **Linux**! 😎 https://www.planetchili.net
+[![Build status](https://ci.appveyor.com/api/projects/status/pnm58xicolfpnrf6/branch/master?svg=true)](https://ci.appveyor.com/project/FinalL/chili-framework/branch/master)
 
 # How to build this beast
 ## Windows
