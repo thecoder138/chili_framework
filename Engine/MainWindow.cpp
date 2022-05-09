@@ -34,6 +34,9 @@ MainWindow::MainWindow()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+    #ifdef __APPLE__
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    #endif
     window = window_ptr{ glfwCreateWindow(Graphics::ScreenWidth, Graphics::ScreenHeight, "Chili Framework", nullptr, nullptr) };
     glfwSetWindowUserPointer(window.get(), this); // used for GLFWwindow* to MainWindow* lookback in callbacks
     glfwMakeContextCurrent(window.get());

@@ -54,7 +54,7 @@ Graphics::Graphics(MainWindow& win)
     
     // allocate memory for sysbuffer (16-byte aligned for faster access)
     pSysBuffer = reinterpret_cast<Color*>(
-        aligned_malloc_independent(sizeof(Color) * Graphics::ScreenWidth * Graphics::ScreenHeight, 16u));
+        aligned_malloc_independent(16u, sizeof(Color) * Graphics::ScreenWidth * Graphics::ScreenHeight));
 
     glGenVertexArrays(1, &VAO);
     if (glGetError() != GL_NO_ERROR)
